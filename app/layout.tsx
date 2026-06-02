@@ -10,8 +10,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Aditya Patil",
-  description: "All about me",
+  title: "Tenith Hasintha — Full-Stack Engineer & AI Builder",
+  description: "Full-Stack Engineer with 4+ years building scalable Python backends, AI-powered applications, and real-time data systems.",
 };
 
 export default function RootLayout({

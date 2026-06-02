@@ -1,33 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Linkedin, Youtube, Calendar, Bot, User, QrCode, X, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
-import { FaXTwitter } from "react-icons/fa6";
+import { Github, Linkedin, Mail, QrCode, X, Bot, User, ChevronDown, ChevronUp } from "lucide-react";
 import { ExperienceItem } from "./components/ExperienceItem";
 import { GithubGraph } from "./components/GithubGraph";
 import { TechStack } from "./components/TechStack";
-import { useState, useEffect, useMemo } from "react";
-import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
+
 import { QRCodeSVG } from "qrcode.react";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
-
-
+import { SiHuggingface } from "react-icons/si";
 
 import { getMarkdownContent } from "./data/content";
-
-const DiscordIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1971.3728.2914a.077.077 0 01-.0066.1277 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z" />
-  </svg>
-);
 
 export default function Home() {
   const [time, setTime] = useState<string>("");
   const [showQR, setShowQR] = useState(false);
   const [mode, setMode] = useState<"human" | "agent">("human");
+  const [projectsExpanded, setProjectsExpanded] = useState(false);
 
-  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const updateTime = () => {
@@ -50,10 +42,6 @@ export default function Home() {
   }, []);
 
   const markdownContent = getMarkdownContent(time);
-
-  const [libraryExpanded, setLibraryExpanded] = useState(false);
-
-
 
   return (
     <div className={`relative flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-16 text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-24 sm:pb-40 overflow-x-hidden transition-colors duration-300`}>
@@ -95,7 +83,7 @@ export default function Home() {
             <div className="relative mb-2 h-40 w-40 sm:h-56 sm:w-56 overflow-hidden">
               <Image
                 src="/me.png"
-                alt="Profile"
+                alt="Tenith Hasintha"
                 fill
                 className="object-contain grayscale"
                 priority
@@ -105,33 +93,31 @@ export default function Home() {
 
             {/* Hero Text */}
             <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-7xl">
-              Aditya Patil
+              Tenith Hasintha
             </h1>
 
-            {/* Phonetic Pronunciation (Aesthetic touch often found in minimal portfolios) */}
+            {/* Phonetic Pronunciation */}
             <div className="mb-8 flex flex-wrap items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500 sm:text-sm">
-              <span>/əˈdɪtjə pɑːˈtiːl/</span>
+              <span>/ˈtɛnɪθ hɑːˈsɪntə/</span>
               <span className="text-gray-300 dark:text-gray-700">•</span>
-              <span>noun</span>
+              <span>engineer</span>
               <span className="text-gray-300 dark:text-gray-700">•</span>
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5">
                   <span className="tabular-nums text-xs sm:text-sm">{time || "00:00:00"}</span>
                   <span className="text-[10px] uppercase tracking-wider sm:text-xs">IST</span>
                 </div>
-
               </div>
             </div>
 
             <div className="w-full space-y-4 text-left text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg md:text-xl">
               <p>
-                a full-stack developer and <a href="https://en.wikipedia.org/wiki/Product_design" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">product builder</a> with deep experience across engineering, product strategy, and user-centric design.
+                a <a href="https://en.wikipedia.org/wiki/Full-stack_developer" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">full-stack engineer</a> with 4+ years building scalable python backends, ai-powered applications, and real-time data systems.
               </p>
               <p>
-                a <a href="https://en.wikipedia.org/wiki/Polymath" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">polymath</a> who bridges technical architecture with business outcomes to create impactful, scalable solutions.
+                comfortable owning the <a href="https://en.wikipedia.org/wiki/Solution_stack" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">full stack</a> independently, shipping under pressure, and translating ambiguous product requirements into reliable, maintainable systems.
               </p>
             </div>
-
 
 
             {/* Experience Section */}
@@ -141,110 +127,205 @@ export default function Home() {
               </h2>
               <div className="space-y-12">
                 <ExperienceItem
-                  title="Resonate (YC W26)"
-                  role="Software Engineer, San Francisco, CA"
+                  title="Lead Software Engineer – Full Stack & AI"
+                  role="Metarune Labs (Pvt) Ltd · 2024 - Present"
                   collapsible={true}
-                  link="https://www.ycombinator.com/companies/resonate"
+                  link="https://www.metarunelabs.dev/"
                 >
                   <div className="space-y-2">
-                    <p>As an early software engineer bridging product strategy and technical execution, I am driving the development of an AI-native messaging platform from zero to one.</p>
-                    <p>Key focus areas include:</p>
+                    <p>Leading the adoption of LLM integrations across multiple products and engineering real-time blockchain backends showcased at Token 2049 Singapore.</p>
                     <ul className="list-disc list-inside space-y-1 pl-2">
-                      <li>Architecting and building core product features for an AI-focused messaging ecosystem.</li>
-                      <li>Developing real-time systems and innovating ways to transform and present information dynamically within messaging interfaces.</li>
-                      <li>Collaborating within a lean team to build robust tools for AI-driven communication.</li>
-                      <li>Operating top-to-bottom, from product conception to complete software development.</li>
+                      <li>Led AI-first transition using LangChain, LangGraph, MCP, and model fine-tuning via Unsloth and Hugging Face — significantly reducing development cycles.</li>
+                      <li>Engineered real-time NestJS backends on Bitcoin blockchain (Beatfarm &amp; Bitcoin Graffiti) with scalable parallel UTXO indexing and Socket.IO multi-user sync.</li>
+                      <li>Mentored junior developers and led cross-functional teams with independent ownership from database architecture to production deployment.</li>
                     </ul>
-                    <p>Transitioning into this founding-level role has been an incredibly rewarding next step following my previous startup ventures.</p>
                   </div>
                 </ExperienceItem>
 
                 <ExperienceItem
-                  title="Entrepreneur First"
-                  role="Founder in Residence, Bengaluru"
+                  title="Junior Game Developer → Full-Stack Engineer"
+                  role="Metarune Labs (Pvt) Ltd · 2022 - 2024"
                   collapsible={true}
-                  link="https://www.joinef.com/"
+                  link="https://www.metarunelabs.dev/"
                 >
                   <div className="space-y-2">
-                    <p>As a Founder in Residence at Entrepreneurs First (EF), a premier global talent investor and startup accelerator, I was immersed in designing and developing cutting-edge Agentic AI systems.</p>
-                    <p>Built autonomous, goal-driven AI agents that shifted from suggestion-based tools to proactive execution, enabling seamless human-AI collaboration and redefining task automation and decision-making.</p>
-                    <p>Drove a bold vision for the future of computing: making traditional web browsing obsolete, turning personal data into the primary interface, and empowering agentic systems to independently handle complex responsibilities.</p>
-                    <p>Operated in a high-intensity environment surrounded by world-class cofounders, mentors, and resources, using EF's structured support to explore, validate, and iterate on ideas at pace.</p>
-                    <p>Positioned at the forefront of a paradigm shift in AI, tackling hard technical and conceptual challenges to create meaningful, scalable impact in the emerging agentic era.</p>
+                    <p>Grew from game development into full-stack engineering, shipping production products across gaming, Web3, and browser extension domains.</p>
+                    <ul className="list-disc list-inside space-y-1 pl-2">
+                      <li>Architected Draftables — a Unity American football manager game with custom MVCS architecture and Firebase integration.</li>
+                      <li>Shipped Solidity/ThirdWeb smart contract features for in-game NFT mechanics, bridging gaming with decentralized tech.</li>
+                      <li>Built the Ethos Chrome Extension — a live X (Twitter) credibility-scoring tool using real-time DOM extraction and API orchestration.</li>
+                    </ul>
                   </div>
                 </ExperienceItem>
 
                 <ExperienceItem
-                  title="Google Summer of Code 2025"
-                  role="Emory University School of Medicine, Atlanta, USA"
+                  title="Technical 3D Artist / Developer"
+                  role="Team Picaroon · 2021 - 2022"
                   collapsible={true}
-                  link="https://minimalistbook.com/gsoc-final-report-2025/"
+                  link="http://www.picaroonteam.com"
                 >
                   <div className="space-y-2">
-                    <p>Designed and developed a comprehensive system for managing Access Control List (ACL) permissions across multiple Linux file system servers, including NFS and BeeGFS, demonstrating expertise in large-scale distributed systems and secure file management.</p>
-                    <p>Built a robust backend capable of processing millions of permission change requests, showcasing proficiency in high-performance computing and scalability.</p>
-                    <p>Implemented two Linux systemd daemons communicating via Unix sockets: one for gRPC-based backend interactions and another for executing ACL changes, highlighting skills in daemon development, inter-process communication, and system-level programming.</p>
-                    <p>Created a user-friendly Next.js frontend enabling secure login, backend communication, and scheduling of permission requests, illustrating full-stack development capabilities and focus on intuitive user experiences.</p>
-                  </div>
-                </ExperienceItem>
-
-                <ExperienceItem
-                  title="Professional Freelancer (Technical GTM)"
-                  role="Technical Writer, Tel Aviv, Israel"
-                  collapsible={true}
-                  link="https://www.upwork.com/freelancers/~0172a072394ece49bb?viewMode=1"
-                >
-                  <div className="space-y-2">
-                    <p>Authored comprehensive, highly technical documentation (50+ pages) for a Software Composition Analysis (SCA) tool, including detailed guides on advanced features such as reachability analysis - focusing on identifying truly exploitable vulnerabilities in open-source dependencies to reduce noise and prioritize remediation in secure software development lifecycles.</p>
-                    <p>Ghostwrote in-depth content on Reachability Analysis for the CTO of a security company, explaining how it enhances SCA by determining whether detected vulnerabilities are actually reachable and exploitable in the application's codebase - delivering clear, authoritative thought leadership material suitable for blogs, whitepapers, or technical marketing.</p>
-                    <p>Deployed and configured Flipt (an open-source, Git-native feature flagging platform) on cloud infrastructure to support video production workflows for a feature flagging provider; troubleshot and resolved operational issues to ensure reliable, production-ready performance in a dynamic environment.</p>
-                    <p>Developed custom scraping tools for a proxy provider targeting real estate platforms, enabling efficient data extraction while adhering to technical and ethical constraints; rapidly produced high-quality articles and technical write-ups on the tools, scraping methodologies, and platform integrations to support knowledge sharing and client deliverables.</p>
-                  </div>
-                </ExperienceItem>
-
-                <ExperienceItem
-                  title="Engineering Intern"
-                  role="Athena Consulting Ltd. Dubai"
-                  collapsible={true}
-                >
-                  <div className="space-y-2">
-                    <p>Led the complete system design and deployment architecture for Eumlet, a UAE-based B2B Web3 payments and financial platform (built on Next.js), on AWS infrastructure. Configured Debian EC2 instances, Application Load Balancer (ALB), and NGINX reverse proxy under senior guidance - ensuring high availability, scalability, and secure handling of financial transactions in a regulated environment.</p>
-                    <p>Engineered automated CI/CD pipelines using GitHub Actions for seamless build, test, and deployment workflows, with direct integration and manual orchestration to EC2 targets - demonstrating strong expertise in modern DevOps practices, infrastructure as code principles, and zero-downtime deployments for production fintech applications.</p>
-                    <p>Managed a team of 4 developers while simultaneously supporting two high-value clients: Lunarspace and Concordium (a privacy-focused Layer-1 blockchain platform) - balancing tight deadlines, client expectations, and resource constraints in a fast-paced environment. Authored comprehensive legal and technical developer handbooks to standardize onboarding, compliance, and best practices for new recruits.</p>
-                    <p>Collaborated remotely with BGTrade (China-based financial platform team) on global security audits and production deployments of sensitive financial systems - coordinating across time zones and cultures to identify vulnerabilities, implement hardening measures, and ensure secure, compliant rollouts in cross-border fintech ecosystems.</p>
+                    <p>Owned the full creative pipeline from 3D modeling through to high-volume NFT asset rendering, while building automation tooling.</p>
+                    <ul className="list-disc list-inside space-y-1 pl-2">
+                      <li>Built custom Python/Blender scripts for batch procedural NFT generation and automated After Effects compositing.</li>
+                      <li>Managed complete art pipeline: 3D modeling, texturing, and final rendering for NFT collections.</li>
+                    </ul>
                   </div>
                 </ExperienceItem>
               </div>
             </div>
 
 
-            {/* In Between These Experiences Section */}
+            {/* Key Projects Section */}
             <div className="mb-16 w-full text-left">
               <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                In Between These Experiences
+                Key Projects
               </h2>
-              <div className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 sm:p-8">
-                <ExperienceItem
-                  title="The Product Building Journey"
-                  role=""
-                  collapsible={true}
-                >
-                  <div className="space-y-4">
-                    <p>I've been building and experimenting on the product side for a long time. Each previous product always feels naive in hindsight, but looking back, I can see they were incrementally better, each iteration teaching me something new about users, infrastructure, and what it takes to build something people actually want.</p>
 
-                    <p>It started with <span className="font-medium">MetaWiper</span> during my sophomore year, a tool that cleaned image metadata. No one would use it, but I was proud. It was my first real attempt at shipping something complete.</p>
+              {/* Professional Projects */}
+              <div className="mb-8">
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
+                  Professional — Metarune Labs
+                </h3>
+                <div className="space-y-8">
+                  <ExperienceItem
+                    title="Beatfarm & Bitcoin Graffiti"
+                    role="TypeScript · NestJS · MongoDB · Socket.IO · Bitcoin"
+                    collapsible={true}
+                  >
+                    <div className="space-y-2">
+                      <p>Led backend development for a music marketplace and a collaborative pixel canvas built on the Bitcoin UTXO economy — both showcased at Token 2049.</p>
+                      <p>Engineered parallel indexing architecture to remove node bottlenecks with real-time canvas synchronization via PartyKit-style Socket.IO mechanism.</p>
+                    </div>
+                  </ExperienceItem>
 
-                    <p>Next came <span className="font-medium">Stockic</span>, a news app where I spent months doing serious infrastructure work. This was where I learned to build systems that could scale, not just features that looked good.</p>
+                  <ExperienceItem
+                    title="Draftables (Web3 Game)"
+                    role="C# · Unity · Firebase · Solidity · ThirdWeb"
+                    collapsible={true}
+                  >
+                    <div className="space-y-2">
+                      <p>Architected an American Football manager game end-to-end with custom MVCS client architecture tailored for card-draw mechanics.</p>
+                      <p>Integrated Firebase for state management alongside Solidity/ThirdWeb for in-game NFT asset ownership.</p>
+                    </div>
+                  </ExperienceItem>
 
-                    <p>Then I worked on <span className="font-medium">Gloss Card</span>, and for the first time, a customer actually wanted to buy it for their product. That validation, knowing someone saw enough value to pay, was a turning point.</p>
+                  <ExperienceItem
+                    title="Ethos Chrome Extension"
+                    role="TypeScript · Vite · DOM Scripting"
+                    collapsible={true}
+                  >
+                    <p>Published Chrome extension that extracts DOM feed data to inject real-time, color-graded credibility scores directly into X (Twitter) profiles.</p>
+                  </ExperienceItem>
 
-                    <p>After that, I built <span className="font-medium">NeuraLeap</span>, where I had the most meaningful user interactions yet, HRs from established firms. I worked on data pipelines capable of handling 50 million LinkedIn profiles and processing them with AI. The scale was different, the stakes were higher, and the technical challenges forced me to level up.</p>
+                  <ExperienceItem
+                    title="Interactive Engine (Scooby & Me)"
+                    role="LLM-Powered · Runtime Generation"
+                    collapsible={true}
+                  >
+                    <p>Interactive reading game powered by LLMs, dynamically generating context-aware comprehension questions mid-story at runtime.</p>
+                  </ExperienceItem>
+                </div>
+              </div>
 
-                    <p>Most recently, I worked on <span className="font-medium">Meteor</span>, an AI SEO toolkit at Entrepreneurs First. This time, my product was being used by 6 YC-backed companies. Real users. Real traction. Real feedback loops.</p>
+              {/* Independent & R&D Projects */}
+              <div className={`relative transition-all duration-500 ${!projectsExpanded ? "max-h-64 overflow-hidden" : ""}`}>
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
+                  Independent, Academic &amp; R&amp;D
+                </h3>
+                <div className="space-y-8">
+                  <ExperienceItem
+                    title="ToolboxLM (SaaS AI Platform)"
+                    role="TypeScript · LangChain · Groq · Firebase"
+                    collapsible={true}
+                  >
+                    <div className="space-y-2">
+                      <p>SaaS platform allowing users to create, share, and monetize custom AI tools.</p>
+                      <p>Engineered core LLM integrations using LangChain with Groq-hosted Llama inference and Firebase Vector Stores for efficient RAG state management.</p>
+                    </div>
+                  </ExperienceItem>
 
-                    <p className="font-medium text-black">So yes, hard work and consistency pay off. Each product was a step forward, even when it didn't feel like it at the time.</p>
+                  <ExperienceItem
+                    title="Endldell Runner"
+                    role="React Three Fiber · Supabase · Vite"
+                    collapsible={true}
+                  >
+                    <p>Immersive 3D racing PWA (iOS/Android) with companion admin dashboard for player management, question analytics, and leaderboard tracking.</p>
+                  </ExperienceItem>
+
+                  <ExperienceItem
+                    title="IntelliDefect Analyzer"
+                    role="Python · Flask · YOLOv8 · PyTorch · ESP32"
+                    collapsible={true}
+                  >
+                    <div className="space-y-2">
+                      <p>Multi-stage real-time industrial defect detection system (structural damage, lid presence, fill levels) using PyTorch/YOLOv8.</p>
+                      <p>Flask API bridging the CV engine with a functional hardware prototype — DC motor, L298 Driver, ESP32 actuator arm, and live Socket.IO analytics dashboard.</p>
+                    </div>
+                  </ExperienceItem>
+
+                  <ExperienceItem
+                    title="Easy Doctor"
+                    role="Python · Flask · LangChain · GPT-3 · ESP32 · Next.js"
+                    collapsible={true}
+                  >
+                    <div className="space-y-2">
+                      <p>Smart medical system mapping a modular ESP32 biometric device (ECG, Temp, Blood Oxygen) with Next.js/Flask web architecture.</p>
+                      <p>LangChain pipeline processing biometric data for motivational messages, targeted patient action plans, and structured clinical analysis.</p>
+                    </div>
+                  </ExperienceItem>
+
+                  <ExperienceItem
+                    title="Raspberry Pi Home Server"
+                    role="Docker · CasaOS · Nginx · Portainer · n8n"
+                    collapsible={true}
+                  >
+                    <p>24/7 self-hosted production ecosystem on Raspberry Pi 3B+ — deep expertise in Docker Engine, Swarm, networking, port mapping, and volume management.</p>
+                  </ExperienceItem>
+
+                  <ExperienceItem
+                    title="4-DOF Robotic Arm"
+                    role="Arduino C · Python · Inverse Kinematics"
+                    collapsible={true}
+                  >
+                    <p>Articulated robotic arm implementing inverse kinematics, mapping 3D coordinates to precise servo joint angles.</p>
+                  </ExperienceItem>
+                </div>
+
+                {!projectsExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-black to-transparent" />
+                )}
+              </div>
+
+              <button
+                onClick={() => setProjectsExpanded(!projectsExpanded)}
+                className="mt-3 flex items-center gap-1 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors"
+              >
+                {projectsExpanded ? (
+                  <>View Less <ChevronUp className="h-3 w-3" /></>
+                ) : (
+                  <>View All Projects <ChevronDown className="h-3 w-3" /></>
+                )}
+              </button>
+            </div>
+
+
+            {/* Open Source Section */}
+            <div className="mb-16 w-full text-left">
+              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                Open Source Contributions
+              </h2>
+              <div className="space-y-4">
+                {[
+                  { name: "ZeroClaw", desc: "Ultra-lightweight AI agent runtime" },
+                  { name: "Lightpanda", desc: "Headless browser for machines" },
+                  { name: "Unsloth", desc: "Framework for efficient LLM fine-tuning" },
+                ].map((project) => (
+                  <div key={project.name} className="group flex items-baseline gap-3 transition-all">
+                    <span className="font-medium text-black dark:text-white">{project.name}</span>
+                    <span className="text-sm text-gray-400 dark:text-gray-500">— {project.desc}</span>
                   </div>
-                </ExperienceItem>
+                ))}
               </div>
             </div>
 
@@ -256,10 +337,16 @@ export default function Home() {
               </h2>
               <div className="space-y-12">
                 <ExperienceItem
-                  title="National Institute of Technology Hamirpur"
-                  role="Electrical Engineering"
+                  title="University of Kelaniya"
+                  role="Bachelor of Engineering Technology (Hons) — Robotics & Automation"
                 >
-                  <p>2022 - Surviving</p>
+                  <p>2020 - 2023</p>
+                </ExperienceItem>
+                <ExperienceItem
+                  title="ESOFT Metro Campus"
+                  role="Diploma in Information Technology"
+                >
+                  <p>2015 - 2016</p>
                 </ExperienceItem>
               </div>
             </div>
@@ -278,240 +365,51 @@ export default function Home() {
                 Tech Stack
               </h2>
               <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                i&apos;m a generalist at heart who can build with anything, but here&apos;s the core stack i&apos;ve spent the most time with:
+                a generalist who builds across the full stack — from python backends and ai pipelines to blockchain systems and embedded hardware:
               </p>
               <TechStack />
             </div>
 
-            {/* Recommendations by Clients Section */}
+            {/* References Section */}
             <div className="mb-16 w-full text-left">
               <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Recommendations by Clients
+                References
               </h2>
               <div className="space-y-8">
-                {/* Roy Feldman Recommendation */}
                 <div className="group border-l-2 border-gray-200 dark:border-gray-800 pl-6 transition-all hover:border-black dark:hover:border-white">
-                  <div className="mb-3">
-                    <a
-                      href="https://www.linkedin.com/in/royhax/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-semibold text-black dark:text-white underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors"
-                    >
-                      Roy Feldman
-                    </a>
-                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">Ex. 8200 (Israeli Intelligence Corps)</span>
+                  <div className="mb-2">
+                    <span className="text-base font-semibold text-black dark:text-white">Bathiya Wickramage</span>
+                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">CEO — Metarune Labs Pvt Ltd</span>
                   </div>
                   <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    I've had the privilege to work with Aditya on several highly technical cybersecurity R&D projects involving design and implementation of defensive network components in Golang, network protocol research and analysis. He is a bright young engineer, extremely talented in hacking and cybersecurity, with a natural curiosity and passion for hacking, and a gift understanding how systems work, how to design and break them. I am certain that he will succeed in any endeavor he puts his mind to, in the realms of cybersecurity, engineering and beyond! :)
+                    <a href="mailto:bathiyaw@metarunelabs.dev" className="underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors">bathiyaw@metarunelabs.dev</a>
                   </p>
                 </div>
 
-                {/* Tom Granot Recommendation */}
                 <div className="group border-l-2 border-gray-200 dark:border-gray-800 pl-6 transition-all hover:border-black dark:hover:border-white">
-                  <div className="mb-3">
-                    <a
-                      href="https://www.linkedin.com/in/tomgranot/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-semibold text-black dark:text-white underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors"
-                    >
-                      Tom Granot
-                    </a>
-                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">Technical GTM (Israel)</span>
+                  <div className="mb-2">
+                    <span className="text-base font-semibold text-black dark:text-white">Nawodya Ishan</span>
+                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">Web 3.0 Lead Developer — Metarune Labs Pvt Ltd</span>
                   </div>
                   <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    It's not often that you get to talk to a person who is not only hungry for mentorship, but comes out of the gate with the attitude that enables him to learn so, so quickly on his feet.
-                    <br /><br />
-                    Aditya did research for highly technical content for me and independently navigated difficult situations without a lot of guidance. If you're looking for someone to research a technical topic for your content work, Aditya is disciplined, thorough and insistent on understanding things in depth before giving a final output.
-                    <br /><br />
-                    Keep on keeping on brother!
+                    <a href="mailto:nawodyain@gmail.com" className="underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors">nawodyain@gmail.com</a>
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Research Publications Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Research Publications
-              </h2>
-              <div className="space-y-12">
-                <ExperienceItem
-                  title="Cross-Compatible Encryption Adapter for Securing Legacy Modbus Devices"
-                  role=""
-                  collapsible={true}
-                  collapsedHeight="max-h-40"
-                >
-                  <div className="space-y-4">
-                    <div className="space-y-1">
-                      <p className="text-sm text-gray-400 dark:text-gray-500 font-medium">
-                        2025 17th International Conference on COMmunication Systems and NETworks (COMSNETS)
-                      </p>
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-                        <p className="text-gray-600 dark:text-gray-400">Authors: Aditya Patil; T. S. Sreeram</p>
-                        <a
-                          href="https://doi.org/10.1109/COMSNETS63942.2025.10885597"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs font-medium text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
-                        >
-                          View Publication
-                        </a>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500 font-bold">Abstract</p>
-                      <p className="text-gray-600 dark:text-gray-400">Supervisory Control and Data Acquisition systems are the backbone of managing critical infrastructure in modern industrial control systems, spanning sectors from power generation to logistics. However, these systems face significant challenges due to threats from malicious actors. The Modbus protocol, despite its known lack of security features, is still used in many industries managing critical infrastructure due to the high cost of replacing existing systems. As a result, these legacy systems remain vulnerable to potentially damaging threats. This paper proposes an adapter device for enhancing the security of the Modbus protocol without replacing devices in legacy systems. The proposed adapter is cost-efficient, provides cross-platform support, and is easy to install, update, and maintain.</p>
-                    </div>
-                  </div>
-                </ExperienceItem>
-              </div>
-            </div>
-
-            {/* Videos Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Explainer Videos
-              </h2>
-              <div className="space-y-3 text-lg text-gray-600 dark:text-gray-400">
-                <p>
-                  here is how i explain complex systems on my{" "}
-                  <a
-                    href="https://www.youtube.com/@theracecondition"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
-                  >
-                    youtube channel
-                  </a>
-                </p>
-                <p>
-                  watch me build{" "}
-                  <a
-                    href="https://www.youtube.com/watch?v=m84tBP_4DWE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
-                  >
-                    spotify system design
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Writings & Blogs Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Writings & Blogs
-              </h2>
-              <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                i host my thoughts on{" "}
-                <a
-                  href="https://medium.com/@adityapatil24680"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black dark:text-white underline underline-offset-4 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
-                >
-                  medium
-                </a>{" "}
-                rather than building a custom site. instead of overengineering and reinventing the wheel, i prefer leveraging a mature platform that lets me focus on what matters: sharing insights on ai systems, product strategy, and technical architecture.
-              </p>
-            </div>
-
-            {/* Library Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Library
-              </h2>
-
-              <div className={`relative transition-all duration-500 ${!libraryExpanded ? "max-h-32 overflow-hidden" : ""}`}>
-                {/* Dev Subsection */}
-                <div className="mb-8">
-                  <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
-                    Dev
-                  </h3>
-                  <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                    {[
-                      { title: "Linux Kernel Development", author: "Robert Love" },
-                      { title: "Hacking: The Art of Exploitation", author: "Jon Erickson" },
-                      { title: "Linux in a Nutshell", author: "Ellen Siever, Stephen Figgins, Robert Love, and Arnold Robbins" },
-                      { title: "Linux Kernel in a Nutshell", author: "Greg Kroah-Hartman" },
-                      { title: "The Art of Electronics", author: "Paul Horowitz and Winfield Hill" },
-                      { title: "Nmap Cookbook", author: "Nicholas Marsh" }
-                    ].map((book) => (
-                      <div key={book.title} className="group flex flex-col gap-1 transition-all">
-                        <span className="text-sm font-medium text-black dark:text-white group-hover:underline underline-offset-4 decoration-gray-200 dark:decoration-gray-800 transition-all">
-                          {book.title}
-                        </span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">
-                          {book.author}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Casual Reads Subsection */}
-                <div className="mb-4">
-                  <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
-                    Casual Reads
-                  </h3>
-                  <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                    {[
-                      { title: "Hooked: How to Build Habit-Forming Products", author: "Nir Eyal" },
-                      { title: "The Lean Startup", author: "Eric Ries" },
-                      { title: "Zero to One", author: "Peter Thiel" },
-                      { title: "The Almanack of Naval Ravikant", author: "Eric Jorgenson" },
-                      { title: "Deep Work", author: "Cal Newport" },
-                      { title: "The Anthology of Balaji Srinivasan", author: "Eric Jorgenson" }
-                    ].map((book) => (
-                      <div key={book.title} className="group flex flex-col gap-1 transition-all">
-                        <span className="text-sm font-medium text-black dark:text-white group-hover:underline underline-offset-4 decoration-gray-200 dark:decoration-gray-800 transition-all">
-                          {book.title}
-                        </span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">
-                          {book.author}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Note */}
-                <p className="mt-6 text-xs italic text-gray-400 dark:text-gray-500">
-                  *and many more, these are just one of my best reads
-                </p>
-
-                {!libraryExpanded && (
-                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-black to-transparent" />
-                )}
-              </div>
-
-              <button
-                onClick={() => setLibraryExpanded(!libraryExpanded)}
-                className="mt-3 flex items-center gap-1 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors"
-              >
-                {libraryExpanded ? (
-                  <>View Less <ChevronUp className="h-3 w-3" /></>
-                ) : (
-                  <>View More <ChevronDown className="h-3 w-3" /></>
-                )}
-              </button>
-            </div>
 
             {/* Thing about me Section */}
             <div className="mb-16 w-full text-left">
               <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Thing about me
+                About Me
               </h2>
               <div className="space-y-6">
                 <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                  beyond engineering and build systems, i find balance in the tactile and the thoughtful. whether it&apos;s exploring the nuances of complex architectures or spending time in the real world, my approach to life is driven by curiosity and a desire to understand how things work at their core.
+                  beyond shipping production systems, i&apos;m driven by the intersection of hardware and software — from configuring raspberry pi servers to building robotic arms with inverse kinematics. i believe the best engineers understand systems at every layer.
                 </p>
-
-<p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                  i believe that the best products are built by people who have a diverse range of interests. it&apos;s the unique combination of technical depth and human perspective that allows us to create technology that actually resonates.
+                <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+                  whether it&apos;s fine-tuning llms with unsloth, engineering real-time blockchain backends, or wiring up esp32 biometric devices — i&apos;m most alive when building things that push boundaries and solve real problems.
                 </p>
               </div>
             </div>
@@ -525,16 +423,16 @@ export default function Home() {
                 <p className="text-lg text-gray-600 dark:text-gray-400">
                   connect with me on{" "}
                   <a
-                    href="https://www.linkedin.com/in/aditya-patil-260a631b2/"
+                    href="https://www.linkedin.com/in/tenith-hasintha-807bb7219"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
                   >
                     linkedin
                   </a>{" "}
-                  or{" "} shoot an {" "}
+                  or{" "} shoot an{" "}
                   <a
-                    href="mailto:adityapatil24680@gmail.com"
+                    href="mailto:hasintha199@gmail.com"
                     className="text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
                   >
                     email
@@ -542,7 +440,6 @@ export default function Home() {
                 </p>
               </div>
             </div>
-
 
 
 
@@ -582,7 +479,7 @@ export default function Home() {
         </button>
         <div className="h-6 w-px bg-gray-200 dark:bg-zinc-700" />
         <a
-          href="https://github.com/PythonHacker24"
+          href="https://github.com/Tenith01"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
@@ -590,7 +487,7 @@ export default function Home() {
           <Github className="h-5 w-5" />
         </a>
         <a
-          href="https://www.linkedin.com/in/aditya-patil-260a631b2/"
+          href="https://www.linkedin.com/in/tenith-hasintha-807bb7219"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
@@ -598,36 +495,18 @@ export default function Home() {
           <Linkedin className="h-5 w-5" />
         </a>
         <a
-          href="https://x.com/firecaffeine"
+          href="https://huggingface.co/tenith"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
         >
-          <FaXTwitter className="h-5 w-5" />
+          <SiHuggingface className="h-5 w-5" />
         </a>
         <a
-          href="https://youtube.com/@theracecondition"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="mailto:hasintha199@gmail.com"
           className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
         >
-          <Youtube className="h-5 w-5" />
-        </a>
-        <a
-          href="https://discord.gg/ry4YCJaShK"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          <DiscordIcon className="h-5 w-5" />
-        </a>
-        <a
-          href="https://cal.com/adi-patil/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          <Calendar className="h-5 w-5" />
+          <Mail className="h-5 w-5" />
         </a>
       </nav>
 
@@ -651,7 +530,7 @@ export default function Home() {
               </button>
               <div className="rounded-lg bg-white p-2">
                 <QRCodeSVG
-                  value="https://www.justaditya.com/"
+                  value="https://tenith.me/"
                   size={200}
                   level="H"
                   includeMargin={false}
@@ -664,4 +543,3 @@ export default function Home() {
     </div >
   );
 }
-

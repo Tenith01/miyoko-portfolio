@@ -8,52 +8,58 @@ const categories = [
     {
         name: "Languages",
         skills: [
-            { name: "Go", slug: "go" },
             { name: "Python", slug: "python" },
             { name: "TypeScript", slug: "typescript" },
             { name: "JavaScript", slug: "javascript" },
-            { name: "C++", slug: "cplusplus" },
+            { name: "C#", slug: "csharp" },
+            { name: "Solidity", slug: "solidity" },
         ]
     },
     {
-        name: "Frontend",
+        name: "Frontend & Web",
         skills: [
             { name: "React", slug: "react" },
             { name: "Next.js", slug: "nextdotjs" },
+            { name: "Vite", slug: "vite" },
             { name: "Tailwind CSS", slug: "tailwindcss" },
-            { name: "Shadcn UI", slug: "shadcnui" },
-            { name: "Framer Motion", slug: "framer" },
+            { name: "Three.js", slug: "threedotjs" },
         ]
     },
     {
-        name: "Backend & DB",
+        name: "Backend & Cloud",
         skills: [
+            { name: "Flask", slug: "flask" },
             { name: "FastAPI", slug: "fastapi" },
+            { name: "NestJS", slug: "nestjs" },
             { name: "Node.js", slug: "nodedotjs" },
+            { name: "Firebase", slug: "firebase" },
+            { name: "Supabase", slug: "supabase" },
+        ]
+    },
+    {
+        name: "Databases",
+        skills: [
             { name: "PostgreSQL", slug: "postgresql" },
             { name: "MongoDB", slug: "mongodb" },
-            { name: "Redis", slug: "redis" },
-            { name: "FireBase", slug: "firebase" },
-        ]
-    },
-    {
-        name: "Infra & Tools",
-        skills: [
-            { name: "Docker", slug: "docker" },
-            { name: "Google Cloud", slug: "googlecloud" },
-            { name: "Vercel", slug: "vercel" },
-            { name: "Git", slug: "git" },
-            { name: "GitHub", slug: "github" },
-            { name: "Linux", slug: "linux" },
-            { name: "Nginx", slug: "nginx" },
         ]
     },
     {
         name: "AI & ML",
         skills: [
+            { name: "LangChain", slug: "langchain" },
             { name: "Hugging Face", slug: "huggingface" },
             { name: "PyTorch", slug: "pytorch" },
-            { name: "Pandas", slug: "pandas" },
+        ]
+    },
+    {
+        name: "DevOps & Infra",
+        skills: [
+            { name: "Docker", slug: "docker" },
+            { name: "Linux", slug: "linux" },
+            { name: "Nginx", slug: "nginx" },
+            { name: "Git", slug: "git" },
+            { name: "GitHub", slug: "github" },
+            { name: "Arduino", slug: "arduino" },
         ]
     }
 ];
