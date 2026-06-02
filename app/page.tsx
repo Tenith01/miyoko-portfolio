@@ -112,7 +112,7 @@ export default function Home() {
 
             <div className="w-full space-y-4 text-left text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg md:text-xl">
               <p>
-                a <a href="https://en.wikipedia.org/wiki/Full-stack_developer" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">full-stack engineer</a> with 4+ years building scalable python backends, ai-powered applications, and real-time data systems.
+                a software engineer specializing in <strong>AI systems</strong> and <a href="https://en.wikipedia.org/wiki/Full-stack_developer" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">full-stack development</a>, with 4+ years building scalable python backends, agentic workflows, and real-time data systems.
               </p>
               <p>
                 comfortable owning the <a href="https://en.wikipedia.org/wiki/Solution_stack" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors">full stack</a> independently, shipping under pressure, and translating ambiguous product requirements into reliable, maintainable systems.
@@ -135,7 +135,7 @@ export default function Home() {
                   <div className="space-y-2">
                     <p>Leading the adoption of LLM integrations across multiple products and engineering real-time blockchain backends showcased at Token 2049 Singapore.</p>
                     <ul className="list-disc list-inside space-y-1 pl-2">
-                      <li>Led AI-first transition using LangChain, LangGraph, MCP, and model fine-tuning via Unsloth and Hugging Face — significantly reducing development cycles.</li>
+                      <li>Architected <strong>agentic AI workflows</strong> and led AI-first transition using LangChain, LangGraph, MCP, and model fine-tuning via Unsloth and Hugging Face.</li>
                       <li>Engineered real-time NestJS backends on Bitcoin blockchain (Beatfarm &amp; Bitcoin Graffiti) with scalable parallel UTXO indexing and Socket.IO multi-user sync.</li>
                       <li>Mentored junior developers and led cross-functional teams with independent ownership from database architecture to production deployment.</li>
                     </ul>
@@ -151,9 +151,9 @@ export default function Home() {
                   <div className="space-y-2">
                     <p>Grew from game development into full-stack engineering, shipping production products across gaming, Web3, and browser extension domains.</p>
                     <ul className="list-disc list-inside space-y-1 pl-2">
-                      <li>Architected Draftables — a Unity American football manager game with custom MVCS architecture and Firebase integration.</li>
+                      <li>Architected Draftables a Unity American football manager game with custom MVCS architecture and Firebase integration.</li>
                       <li>Shipped Solidity/ThirdWeb smart contract features for in-game NFT mechanics, bridging gaming with decentralized tech.</li>
-                      <li>Built the Ethos Chrome Extension — a live X (Twitter) credibility-scoring tool using real-time DOM extraction and API orchestration.</li>
+                      <li>Built the Ethos Chrome Extension a live X (Twitter) credibility-scoring tool using real-time DOM extraction and API orchestration.</li>
                     </ul>
                   </div>
                 </ExperienceItem>
@@ -185,7 +185,7 @@ export default function Home() {
               {/* Professional Projects */}
               <div className="mb-8">
                 <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
-                  Professional — Metarune Labs
+                  Professional Metarune Labs
                 </h3>
                 <div className="space-y-8">
                   <ExperienceItem
@@ -194,7 +194,7 @@ export default function Home() {
                     collapsible={true}
                   >
                     <div className="space-y-2">
-                      <p>Led backend development for a music marketplace and a collaborative pixel canvas built on the Bitcoin UTXO economy — both showcased at Token 2049.</p>
+                      <p>Led backend development for a music marketplace and a collaborative pixel canvas built on the Bitcoin UTXO economy both showcased at Token 2049.</p>
                       <p>Engineered parallel indexing architecture to remove node bottlenecks with real-time canvas synchronization via PartyKit-style Socket.IO mechanism.</p>
                     </div>
                   </ExperienceItem>
@@ -240,8 +240,8 @@ export default function Home() {
                     collapsible={true}
                   >
                     <div className="space-y-2">
-                      <p>SaaS platform allowing users to create, share, and monetize custom AI tools.</p>
-                      <p>Engineered core LLM integrations using LangChain with Groq-hosted Llama inference and Firebase Vector Stores for efficient RAG state management.</p>
+                      <p><strong>Major platform build:</strong> A SaaS platform allowing users to create, share, and monetize custom AI tools.</p>
+                      <p>Engineered core LLM integrations using LangChain with Groq-hosted Llama inference and Firebase Vector Stores for <strong>complex RAG pipelines</strong> and efficient state management.</p>
                     </div>
                   </ExperienceItem>
 
@@ -260,7 +260,7 @@ export default function Home() {
                   >
                     <div className="space-y-2">
                       <p>Multi-stage real-time industrial defect detection system (structural damage, lid presence, fill levels) using PyTorch/YOLOv8.</p>
-                      <p>Flask API bridging the CV engine with a functional hardware prototype — DC motor, L298 Driver, ESP32 actuator arm, and live Socket.IO analytics dashboard.</p>
+                      <p>Flask API bridging the CV engine with a functional hardware prototype DC motor, L298 Driver, ESP32 actuator arm, and live Socket.IO analytics dashboard.</p>
                     </div>
                   </ExperienceItem>
 
@@ -280,7 +280,7 @@ export default function Home() {
                     role="Docker · CasaOS · Nginx · Portainer · n8n"
                     collapsible={true}
                   >
-                    <p>24/7 self-hosted production ecosystem on Raspberry Pi 3B+ — deep expertise in Docker Engine, Swarm, networking, port mapping, and volume management.</p>
+                    <p>24/7 self-hosted production ecosystem on Raspberry Pi 3B+ deep expertise in Docker Engine, Swarm, networking, port mapping, and volume management.</p>
                   </ExperienceItem>
 
                   <ExperienceItem
@@ -323,7 +323,7 @@ export default function Home() {
                 ].map((project) => (
                   <div key={project.name} className="group flex items-baseline gap-3 transition-all">
                     <span className="font-medium text-black dark:text-white">{project.name}</span>
-                    <span className="text-sm text-gray-400 dark:text-gray-500">— {project.desc}</span>
+                    <span className="text-sm text-gray-400 dark:text-gray-500">- {project.desc}</span>
                   </div>
                 ))}
               </div>
@@ -338,7 +338,7 @@ export default function Home() {
               <div className="space-y-12">
                 <ExperienceItem
                   title="University of Kelaniya"
-                  role="Bachelor of Engineering Technology (Hons) — Robotics & Automation"
+                  role="Bachelor of Engineering Technology (Hons) Robotics & Automation"
                 >
                   <p>2020 - 2023</p>
                 </ExperienceItem>
@@ -365,7 +365,7 @@ export default function Home() {
                 Tech Stack
               </h2>
               <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                a generalist who builds across the full stack — from python backends and ai pipelines to blockchain systems and embedded hardware:
+                a generalist who builds across the full stack from python backends and ai pipelines to blockchain systems and embedded hardware:
               </p>
               <TechStack />
             </div>
@@ -379,7 +379,7 @@ export default function Home() {
                 <div className="group border-l-2 border-gray-200 dark:border-gray-800 pl-6 transition-all hover:border-black dark:hover:border-white">
                   <div className="mb-2">
                     <span className="text-base font-semibold text-black dark:text-white">Bathiya Wickramage</span>
-                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">CEO — Metarune Labs Pvt Ltd</span>
+                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">CEO - Metarune Labs Pvt Ltd</span>
                   </div>
                   <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                     <a href="mailto:bathiyaw@metarunelabs.dev" className="underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors">bathiyaw@metarunelabs.dev</a>
@@ -389,7 +389,7 @@ export default function Home() {
                 <div className="group border-l-2 border-gray-200 dark:border-gray-800 pl-6 transition-all hover:border-black dark:hover:border-white">
                   <div className="mb-2">
                     <span className="text-base font-semibold text-black dark:text-white">Nawodya Ishan</span>
-                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">Web 3.0 Lead Developer — Metarune Labs Pvt Ltd</span>
+                    <span className="ml-2 text-xs font-medium text-gray-500 dark:text-gray-500">Web 3.0 Lead Developer - Metarune Labs Pvt Ltd</span>
                   </div>
                   <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                     <a href="mailto:nawodyain@gmail.com" className="underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors">nawodyain@gmail.com</a>
@@ -406,10 +406,10 @@ export default function Home() {
               </h2>
               <div className="space-y-6">
                 <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                  beyond shipping production systems, i&apos;m driven by the intersection of hardware and software — from configuring raspberry pi servers to building robotic arms with inverse kinematics. i believe the best engineers understand systems at every layer.
+                  beyond shipping production systems, i&apos;m driven by the intersection of hardware and software from configuring raspberry pi servers to building robotic arms with inverse kinematics. i believe the best engineers understand systems at every layer.
                 </p>
                 <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                  whether it&apos;s fine-tuning llms with unsloth, engineering real-time blockchain backends, or wiring up esp32 biometric devices — i&apos;m most alive when building things that push boundaries and solve real problems.
+                  whether it&apos;s fine-tuning llms with unsloth, engineering real-time blockchain backends, or wiring up esp32 biometric devices i&apos;m most alive when building things that push boundaries and solve real problems.
                 </p>
               </div>
             </div>

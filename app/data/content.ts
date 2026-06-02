@@ -5,16 +5,16 @@ export const getMarkdownContent = (time: string) => `# Tenith Hasintha
 
 Full-Stack Engineer with 4+ years of experience building scalable Python backends, AI-powered applications, and real-time data systems. Proven in designing and deploying production-grade REST APIs using FastAPI and Flask, architecting PostgreSQL-backed services, and leading cross-functional engineering teams from database design through to containerized deployment.
 
-Deep hands-on experience integrating LLMs and AI tooling into live products using LangChain, LangGraph, and Hugging Face — including fine-tuned model pipelines and RAG systems.
+Deep hands-on experience integrating LLMs and AI tooling into live products using LangChain, LangGraph, and Hugging Face including fine-tuned model pipelines and RAG systems.
 
 ## Experience
 
-### Lead Software Engineer – Full Stack & AI
+### Lead Software Engineer Full Stack & AI
 **Metarune Labs (Pvt) Ltd** | 2024 - Present | Sri Lanka
 [https://www.metarunelabs.dev/](https://www.metarunelabs.dev/)
 
 - Led the adoption of LLM integrations across multiple products using LangChain, LangGraph, and MCP, along with model fine-tuning via Unsloth and Hugging Face.
-- Engineered real-time NestJS backends on the Bitcoin blockchain (Beatfarm & Bitcoin Graffiti) with scalable parallel UTXO indexing and Socket.IO multi-user sync — both showcased at Token 2049 Singapore.
+- Engineered real-time NestJS backends on the Bitcoin blockchain (Beatfarm & Bitcoin Graffiti) with scalable parallel UTXO indexing and Socket.IO multi-user sync both showcased at Token 2049 Singapore.
 - Mentored junior developers and led cross-functional teams, taking independent ownership from database architecture through to production deployment.
 
 ### Junior Game Developer to Full-Stack Engineer
@@ -89,14 +89,22 @@ ESOFT Metro Campus | 2015 - 2016
 
 ## Tech Stack
 
-Python, TypeScript, JavaScript (ES6+), C#, SQL, Solidity, React.js, Next.js, Vite, Tailwind CSS, Flask, FastAPI, NestJS, Node.js, Firebase, Supabase, PostgreSQL, MongoDB, FAISS, LangChain, LangGraph, Hugging Face, Unsloth, PyTorch, YOLOv8, Docker, Linux, Nginx, ESP32, Arduino
+**Languages:** Python, TypeScript, JavaScript (ES6+), C#, SQL, HTML5, CSS3, Solidity
+**Frontend & Web:** React.js, Next.js, Vite, Tailwind CSS, React Three Fiber, Unity, Plasmo, Zustand
+**Backend & Cloud:** Flask, FastAPI, NestJS, Node.js, Firebase Functions, Supabase, Convex
+**Databases:** PostgreSQL, MongoDB, Firestore, FAISS Vector Stores, PocketBase
+**AI & ML:** LangChain, LangGraph, Hugging Face, Unsloth (Fine-tuning), LangSmith, MCP, PyTorch, YOLOv8
+**Web3 & Real-Time:** Solidity, ThirdWeb, Bitcoin Computer, Socket.IO, PartyKit
+**DevOps & Hardware:** Linux, Docker, Docker Compose, Nginx, Portainer, n8n, ESP32, Arduino, MicroPython
+**AI DEV TOOLS:** Cursor, Claude, Codex, Gemini CLI, Antigravity
+**Tools & Testing:** Git/GitHub, Turborepo, jira, asana
 
 ## References
 
-**Bathiya Wickramage** — CEO, Metarune Labs Pvt Ltd
+**Bathiya Wickramage** : CEO, Metarune Labs Pvt Ltd
 bathiyaw@metarunelabs.dev
 
-**Nawodya Ishan** — Web 3.0 Lead Developer, Metarune Labs Pvt Ltd
+**Nawodya Ishan** : Web 3.0 Lead Developer, Metarune Labs Pvt Ltd
 nawodyain@gmail.com
 
 ---

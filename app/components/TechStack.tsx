@@ -10,19 +10,25 @@ const categories = [
         skills: [
             { name: "Python", slug: "python" },
             { name: "TypeScript", slug: "typescript" },
-            { name: "JavaScript", slug: "javascript" },
+            { name: "JavaScript (ES6+)", slug: "javascript" },
             { name: "C#", slug: "csharp" },
+            { name: "SQL", slug: "mysql" },
+            { name: "HTML5", slug: "html5" },
+            { name: "CSS3", slug: "css3" },
             { name: "Solidity", slug: "solidity" },
         ]
     },
     {
         name: "Frontend & Web",
         skills: [
-            { name: "React", slug: "react" },
+            { name: "React.js", slug: "react" },
             { name: "Next.js", slug: "nextdotjs" },
             { name: "Vite", slug: "vite" },
             { name: "Tailwind CSS", slug: "tailwindcss" },
-            { name: "Three.js", slug: "threedotjs" },
+            { name: "React Three Fiber", slug: "threedotjs" },
+            { name: "Unity", slug: "unity" },
+            { name: "Plasmo", slug: "googlechrome" },
+            { name: "Zustand", slug: "react" },
         ]
     },
     {
@@ -32,8 +38,9 @@ const categories = [
             { name: "FastAPI", slug: "fastapi" },
             { name: "NestJS", slug: "nestjs" },
             { name: "Node.js", slug: "nodedotjs" },
-            { name: "Firebase", slug: "firebase" },
+            { name: "Firebase Functions", slug: "firebase" },
             { name: "Supabase", slug: "supabase" },
+            { name: "Convex", slug: "javascript" },
         ]
     },
     {
@@ -41,25 +48,65 @@ const categories = [
         skills: [
             { name: "PostgreSQL", slug: "postgresql" },
             { name: "MongoDB", slug: "mongodb" },
+            { name: "Firestore", slug: "firebase" },
+            { name: "FAISS Vector Stores", slug: "meta" },
+            { name: "PocketBase", slug: "pocketbase" },
         ]
     },
     {
         name: "AI & ML",
         skills: [
             { name: "LangChain", slug: "langchain" },
+            { name: "LangGraph", slug: "langchain" },
             { name: "Hugging Face", slug: "huggingface" },
+            { name: "Unsloth (Fine-tuning)", slug: "python" },
+            { name: "LangSmith", slug: "langchain" },
+            { name: "MCP", slug: "anthropic" },
             { name: "PyTorch", slug: "pytorch" },
+            { name: "YOLOv8", slug: "python" },
         ]
     },
     {
-        name: "DevOps & Infra",
+        name: "Web3 & Real-Time",
         skills: [
-            { name: "Docker", slug: "docker" },
+            { name: "Solidity", slug: "solidity" },
+            { name: "ThirdWeb", slug: "thirdweb" },
+            { name: "Bitcoin Computer", slug: "bitcoin" },
+            { name: "Socket.IO", slug: "socketdotio" },
+            { name: "PartyKit", slug: "cloudflare" },
+        ]
+    },
+    {
+        name: "DevOps & Hardware",
+        skills: [
             { name: "Linux", slug: "linux" },
+            { name: "Docker", slug: "docker" },
+            { name: "Docker Compose", slug: "docker" },
             { name: "Nginx", slug: "nginx" },
-            { name: "Git", slug: "git" },
-            { name: "GitHub", slug: "github" },
+            { name: "Portainer", slug: "portainer" },
+            { name: "n8n", slug: "n8n" },
+            { name: "ESP32", slug: "espressif" },
             { name: "Arduino", slug: "arduino" },
+            { name: "MicroPython", slug: "micropython" },
+        ]
+    },
+    {
+        name: "AI DEV TOOLS",
+        skills: [
+            { name: "Cursor", slug: "cursor" },
+            { name: "Claude", slug: "anthropic" },
+            { name: "Codex", slug: "openai" },
+            { name: "Gemini CLI", slug: "googlegemini" },
+            { name: "Antigravity", slug: "google" },
+        ]
+    },
+    {
+        name: "Tools & Testing",
+        skills: [
+            { name: "Git/GitHub", slug: "github" },
+            { name: "Turborepo", slug: "turborepo" },
+            { name: "jira", slug: "jira" },
+            { name: "asana", slug: "asana" },
         ]
     }
 ];
