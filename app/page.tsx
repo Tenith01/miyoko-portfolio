@@ -82,10 +82,10 @@ export default function Home() {
             {/* Profile Image */}
             <div className="relative mb-2 h-40 w-40 sm:h-56 sm:w-56 overflow-hidden">
               <Image
-                src="/me.png"
+                src="/profile.png"
                 alt="Tenith Hasintha"
                 fill
-                className="object-contain grayscale"
+                className="object-cover scale-125"
                 priority
               />
               <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-black dark:via-black/60 backdrop-blur-[1px]" />
